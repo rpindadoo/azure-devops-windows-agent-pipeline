@@ -96,7 +96,7 @@ RUN powershell -Command `
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
     Invoke-WebRequest -OutFile javajre.zip https://github.com/ojdkbuild/ojdkbuild/releases/download/java-11-openjdk-11.0.9.11-2/java-11-openjdk-jre-11.0.9.11-2.windows.ojdkbuild.x86_64.zip; `
     Expand-Archive javajre.zip -Force -DestinationPath C:\TEMP\javajre; `
-    Move-Item C:\TEMP\javajre\java-11-openjdk-jre-11.0.9.11-2.windows.ojdkbuild.x86_64 "${Env:ProgramFiles\Java"; `
+    Move-Item C:\TEMP\javajre\java-11-openjdk-jre-11.0.9.11-2.windows.ojdkbuild.x86_64 "${Env:ProgramFiles}\Java"; `
     Remove-Item javajre.zip -Force; `
     setx /M PATH $($Env:PATH + ';' + ${Env:ProgramFiles} + '\Java'); `
     setx /M java $(${Env:ProgramFiles} + '\Java'); `
